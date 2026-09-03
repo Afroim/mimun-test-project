@@ -1,9 +1,9 @@
 <template>
-  <lightning-card title="Monthly Sales Summary" icon-name="standard:metrics">
+  <lightning-card title={labels.title} icon-name="standard:metrics">
     <div class="slds-var-p-horizontal_medium slds-var-p-bottom_medium">
       <div class="picker-container">
         <lightning-record-picker
-          label="Salesperson"
+          label={labels.salesperson}
           object-api-name="User"
           value={selectedSalespersonId}
           filter={activeUserFilter}
@@ -18,17 +18,14 @@
           <div
             class="slds-text-body_small slds-text-color_weak slds-var-m-top_x-small"
           >
-            You can view only your own sales summary.
+            {labels.ownDataOnly}
           </div>
         </template>
       </div>
 
       <div class="content">
         <template lwc:if={isLoading}>
-          <lightning-spinner
-            alternative-text="Loading sales summary"
-            size="medium"
-          >
+          <lightning-spinner alternative-text={labels.loading} size="medium">
           </lightning-spinner>
         </template>
 
@@ -44,7 +41,7 @@
             </lightning-datatable>
 
             <div class="summary-footer">
-              <span class="summary-label"> Total for 12 months </span>
+              <span class="summary-label"> {labels.total12Months} </span>
 
               <lightning-formatted-number
                 value={totalAmount}

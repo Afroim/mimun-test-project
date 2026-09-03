@@ -108,9 +108,7 @@ public without sharing class MonthlySalesSummaryController {
     );
 
     if (!canViewAllSalesSummaries) {
-      throw new AuraHandledException(
-        'You are not authorized to view another salesperson.'
-      );
+      throw new AuraHandledException(System.Label.SalesSummary_Unauthorized);
     }
 
     return requestedSalespersonId;
@@ -124,7 +122,9 @@ public without sharing class MonthlySalesSummaryController {
       salespersonId == null ||
       salespersonId.getSObjectType() != User.SObjectType
     ) {
-      throw new AuraHandledException('The selected salesperson is invalid.');
+      throw new AuraHandledException(
+        System.Label.SalesSummary_InvalidSalesperson
+      );
     }
 
     List<User> activeUsers = [
@@ -135,7 +135,9 @@ public without sharing class MonthlySalesSummaryController {
     ];
 
     if (activeUsers.isEmpty()) {
-      throw new AuraHandledException('The selected salesperson is not active.');
+      throw new AuraHandledException(
+        System.Label.SalesSummary_InactiveSalesperson
+      );
     }
   }
 
@@ -155,9 +157,7 @@ public without sharing class MonthlySalesSummaryController {
       Account.OwnerId.getDescribe().isAccessible();
 
     if (!hasAccess) {
-      throw new AuraHandledException(
-        'You do not have permission to access sales data.'
-      );
+      throw new AuraHandledException(System.Label.SalesSummary_NoDataAccess);
     }
   }
 

@@ -5,16 +5,47 @@ import canViewAllSalesSummaries from "@salesforce/customPermission/View_All_Sale
 import getSalesSummary from "@salesforce/apex/MonthlySalesSummaryController.getSalesSummary";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
 
+import TITLE from "@salesforce/label/c.SalesSummary_Title";
+import SALESPERSON from "@salesforce/label/c.SalesSummary_Salesperson";
+import OWN_DATA_ONLY from "@salesforce/label/c.SalesSummary_OwnDataOnly";
+import LOADING from "@salesforce/label/c.SalesSummary_Loading";
+import MONTH from "@salesforce/label/c.SalesSummary_Month";
+import YEAR from "@salesforce/label/c.SalesSummary_Year";
+import TOTAL_SALES from "@salesforce/label/c.SalesSummary_TotalSales";
+import TOTAL_12_MONTHS from "@salesforce/label/c.SalesSummary_Total12Months";
+import NO_SALES_TITLE from "@salesforce/label/c.SalesSummary_NoSalesTitle";
+import NO_SALES_MESSAGE from "@salesforce/label/c.SalesSummary_NoSalesMessage";
+import LOOKUP_ERROR_TITLE from "@salesforce/label/c.SalesSummary_LookupErrorTitle";
+import LOOKUP_ERROR_MESSAGE from "@salesforce/label/c.SalesSummary_LookupErrorMessage";
+import LOAD_ERROR_TITLE from "@salesforce/label/c.SalesSummary_LoadErrorTitle";
+import UNEXPECTED_ERROR from "@salesforce/label/c.SalesSummary_UnexpectedError";
+
 export default class MonthlySalesSummary extends LightningElement {
   @api lowSalesThreshold = 1000;
   @api currencyCode = "ILS";
+
+  labels = {
+    title: TITLE,
+    salesperson: SALESPERSON,
+    ownDataOnly: OWN_DATA_ONLY,
+    loading: LOADING,
+    month: MONTH,
+    year: YEAR,
+    totalSales: TOTAL_SALES,
+    total12Months: TOTAL_12_MONTHS,
+    noSalesTitle: NO_SALES_TITLE,
+    noSalesMessage: NO_SALES_MESSAGE,
+    lookupErrorTitle: LOOKUP_ERROR_TITLE,
+    lookupErrorMessage: LOOKUP_ERROR_MESSAGE,
+    loadErrorTitle: LOAD_ERROR_TITLE,
+    unexpectedError: UNEXPECTED_ERROR
+  };
 
   selectedSalespersonId = CURRENT_USER_ID;
   rows = [];
   totalAmount = 0;
   hasSalesData = false;
   isLoading = false;
-
   requestSequence = 0;
 
   activeUserFilter = {
@@ -62,17 +93,17 @@ export default class MonthlySalesSummary extends LightningElement {
   get columns() {
     return [
       {
-        label: "Month",
+        label: this.labels.month,
         fieldName: "monthName",
         type: "text"
       },
       {
-        label: "Year",
+        label: this.labels.year,
         fieldName: "year",
         type: "text"
       },
       {
-        label: "Total Sales",
+        label: this.labels.totalSales,
         fieldName: "amount",
         type: "currency",
         typeAttributes: {
@@ -92,20 +123,18 @@ export default class MonthlySalesSummary extends LightningElement {
   }
 
   handleSalespersonChange(event) {
-    const selectedRecordId = event.detail.recordId;
-
-    this.selectedSalespersonId = selectedRecordId || CURRENT_USER_ID;
+    this.selectedSalespersonId = event.detail.recordId || CURRENT_USER_ID;
 
     this.loadSalesSummary();
   }
 
   handleRecordPickerError(event) {
-    const pickerError =
+    const message =
       event.detail && event.detail.error && event.detail.error.message
         ? event.detail.error.message
-        : "Unable to load active salespeople.";
+        : this.labels.lookupErrorMessage;
 
-    this.showToast("Salesperson lookup error", pickerError, "error");
+    this.showToast(this.labels.lookupErrorTitle, message, "error");
   }
 
   async loadSalesSummary() {
@@ -127,8 +156,8 @@ export default class MonthlySalesSummary extends LightningElement {
 
       if (!response || response.hasSales !== true) {
         this.showToast(
-          "No sales found",
-          "No sales were found for the selected salesperson during the last 12 months.",
+          this.labels.noSalesTitle,
+          this.labels.noSalesMessage,
           "info"
         );
 
@@ -136,8 +165,6 @@ export default class MonthlySalesSummary extends LightningElement {
       }
 
       const threshold = this.normalizedLowSalesThreshold;
-
-      const currencyCode = this.effectiveCurrencyCode;
 
       this.rows = (response.months || []).map((monthSummary) => {
         const year = Number(monthSummary.year);
@@ -148,15 +175,13 @@ export default class MonthlySalesSummary extends LightningElement {
 
         const hasSales = monthSummary.hasSales === true;
 
-        const isBelowThreshold = hasSales && amount < threshold;
-
         return {
           id: `${year}-${monthNumber}`,
           monthName: this.formatMonthName(year, monthNumber),
           year: String(year),
           amount,
-          currencyCode,
-          amountClass: isBelowThreshold ? "slds-text-color_error" : ""
+          amountClass:
+            hasSales && amount < threshold ? "slds-text-color_error" : ""
         };
       });
 
@@ -169,7 +194,7 @@ export default class MonthlySalesSummary extends LightningElement {
       }
 
       this.showToast(
-        "Unable to load sales summary",
+        this.labels.loadErrorTitle,
         this.getErrorMessage(error),
         "error"
       );
@@ -202,7 +227,7 @@ export default class MonthlySalesSummary extends LightningElement {
       return error.message;
     }
 
-    return "An unexpected error occurred while loading the sales summary.";
+    return this.labels.unexpectedError;
   }
 
   showToast(title, message, variant) {
