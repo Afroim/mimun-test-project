@@ -1,0 +1,62 @@
+# Salesforce local cache, authentication, and runtime state
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# LWC VS Code autocomplete files generated automatically
+**/lwc/jsconfig.json
+
+# Dependencies
+node_modules/
+
+# Test results and coverage
+coverage/
+.nyc_output/
+test-results/
+junit/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Static analysis and lint caches
+.pmdCache/
+.eslintcache
+.stylelintcache
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# Secrets and private certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Python cache and virtual environments
+**/__pycache__/
+**/*.py[cod]
+**/.venv/
+**/venv/
+
+# VS Code user-specific settings
+.vscode/settings.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
