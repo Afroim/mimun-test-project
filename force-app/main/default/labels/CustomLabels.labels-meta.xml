@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>SalesSummary_Title</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales summary title</shortDescription>
+        <value>Monthly Sales Summary</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Salesperson</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Salesperson field label</shortDescription>
+        <value>Salesperson</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_OwnDataOnly</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Own sales only message</shortDescription>
+        <value>You can view only your own sales summary.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Loading</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading message</shortDescription>
+        <value>Loading sales summary</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Month</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Month column</shortDescription>
+        <value>Month</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Year</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Year column</shortDescription>
+        <value>Year</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_TotalSales</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total sales column</shortDescription>
+        <value>Total Sales</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Total12Months</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Twelve-month total</shortDescription>
+        <value>Total for 12 months</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_NoSalesTitle</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No sales title</shortDescription>
+        <value>No sales found</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_NoSalesMessage</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No sales message</shortDescription>
+        <value
+    >No sales were found for the selected salesperson during the last 12 months.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_LookupErrorTitle</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lookup error title</shortDescription>
+        <value>Salesperson lookup error</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_LookupErrorMessage</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lookup error message</shortDescription>
+        <value>Unable to load active salespeople.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_LoadErrorTitle</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Load error title</shortDescription>
+        <value>Unable to load sales summary</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_UnexpectedError</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unexpected error</shortDescription>
+        <value
+    >An unexpected error occurred while loading the sales summary.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_Unauthorized</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unauthorized salesperson access</shortDescription>
+        <value>You are not authorized to view another salesperson.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_InvalidSalesperson</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid salesperson</shortDescription>
+        <value>The selected salesperson is invalid.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_InactiveSalesperson</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Inactive salesperson</shortDescription>
+        <value>The selected salesperson is not active.</value>
+    </labels>
+
+    <labels>
+        <fullName>SalesSummary_NoDataAccess</fullName>
+        <categories>Sales Summary</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No sales data access</shortDescription>
+        <value>You do not have permission to access sales data.</value>
+    </labels>
+</CustomLabels>
