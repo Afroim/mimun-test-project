@@ -1,0 +1,61 @@
+<template>
+  <lightning-card title={labels.title} icon-name="standard:metrics">
+    <div class="slds-var-p-horizontal_medium slds-var-p-bottom_medium">
+      <div class="picker-container">
+        <lightning-record-picker
+          label={labels.salesperson}
+          object-api-name="User"
+          value={selectedSalespersonId}
+          filter={activeUserFilter}
+          disabled={isSalespersonSelectionDisabled}
+          required
+          onchange={handleSalespersonChange}
+          onerror={handleRecordPickerError}
+        >
+        </lightning-record-picker>
+
+        <template lwc:if={isSalespersonSelectionDisabled}>
+          <div
+            class="slds-text-body_small slds-text-color_weak slds-var-m-top_x-small"
+          >
+            {labels.ownDataOnly}
+          </div>
+        </template>
+      </div>
+
+      <div class="content">
+        <template lwc:if={isLoading}>
+          <lightning-spinner alternative-text={labels.loading} size="medium">
+          </lightning-spinner>
+        </template>
+
+        <template lwc:elseif={hasSalesData}>
+          <div class="table-container">
+            <lightning-datatable
+              key-field="id"
+              data={rows}
+              columns={columns}
+              hide-checkbox-column
+              show-row-number-column
+            >
+            </lightning-datatable>
+
+            <div class="summary-footer">
+              <span class="summary-label"> {labels.total12Months} </span>
+
+              <lightning-formatted-number
+                value={totalAmount}
+                format-style="currency"
+                currency-code={effectiveCurrencyCode}
+                currency-display-as="symbol"
+                minimum-fraction-digits="2"
+                maximum-fraction-digits="2"
+              >
+              </lightning-formatted-number>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>

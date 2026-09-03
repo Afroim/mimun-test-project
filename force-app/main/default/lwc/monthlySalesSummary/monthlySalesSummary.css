@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.picker-container {
+  max-width: 32rem;
+}
+
+.content {
+  position: relative;
+  min-height: 6rem;
+}
+
+.table-container {
+  margin-top: 1.5rem;
+}
+
+.summary-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--lwc-colorBorder, #dddbda);
+  background-color: var(--lwc-colorBackgroundAlt, #f3f3f3);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.summary-label {
+  color: var(--lwc-colorTextDefault, #181818);
+}
+
+@media only screen and (max-width: 48rem) {
+  .summary-footer {
+    justify-content: space-between;
+  }
+}

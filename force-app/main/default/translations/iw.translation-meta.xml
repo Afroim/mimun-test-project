@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>סיכום מכירות חודשי</label>
+        <name>SalesSummary_Title</name>
+    </customLabels>
+
+    <customLabels>
+        <label>איש/ת מכירות</label>
+        <name>SalesSummary_Salesperson</name>
+    </customLabels>
+
+    <customLabels>
+        <label>באפשרותך לצפות בסיכום המכירות שלך בלבד.</label>
+        <name>SalesSummary_OwnDataOnly</name>
+    </customLabels>
+
+    <customLabels>
+        <label>טוען סיכום מכירות</label>
+        <name>SalesSummary_Loading</name>
+    </customLabels>
+
+    <customLabels>
+        <label>חודש</label>
+        <name>SalesSummary_Month</name>
+    </customLabels>
+
+    <customLabels>
+        <label>שנה</label>
+        <name>SalesSummary_Year</name>
+    </customLabels>
+
+    <customLabels>
+        <label>סך המכירות</label>
+        <name>SalesSummary_TotalSales</name>
+    </customLabels>
+
+    <customLabels>
+        <label>סך הכול ל-12 חודשים</label>
+        <name>SalesSummary_Total12Months</name>
+    </customLabels>
+
+    <customLabels>
+        <label>לא נמצאו מכירות</label>
+        <name>SalesSummary_NoSalesTitle</name>
+    </customLabels>
+
+    <customLabels>
+        <label
+    >לא נמצאו מכירות עבור איש/ת המכירות שנבחר/ה במהלך 12 החודשים האחרונים.</label>
+        <name>SalesSummary_NoSalesMessage</name>
+    </customLabels>
+
+    <customLabels>
+        <label>שגיאה בבחירת איש/ת מכירות</label>
+        <name>SalesSummary_LookupErrorTitle</name>
+    </customLabels>
+
+    <customLabels>
+        <label>לא ניתן לטעון את רשימת אנשי המכירות הפעילים.</label>
+        <name>SalesSummary_LookupErrorMessage</name>
+    </customLabels>
+
+    <customLabels>
+        <label>לא ניתן לטעון את סיכום המכירות</label>
+        <name>SalesSummary_LoadErrorTitle</name>
+    </customLabels>
+
+    <customLabels>
+        <label>אירעה שגיאה בלתי צפויה בעת טעינת סיכום המכירות.</label>
+        <name>SalesSummary_UnexpectedError</name>
+    </customLabels>
+
+    <customLabels>
+        <label>אין לך הרשאה לצפות במכירות של איש/ת מכירות אחר/ת.</label>
+        <name>SalesSummary_Unauthorized</name>
+    </customLabels>
+
+    <customLabels>
+        <label>איש/ת המכירות שנבחר/ה אינו/ה חוקי/ת.</label>
+        <name>SalesSummary_InvalidSalesperson</name>
+    </customLabels>
+
+    <customLabels>
+        <label>איש/ת המכירות שנבחר/ה אינו/ה פעיל/ה.</label>
+        <name>SalesSummary_InactiveSalesperson</name>
+    </customLabels>
+
+    <customLabels>
+        <label>אין לך הרשאה לגשת לנתוני המכירות.</label>
+        <name>SalesSummary_NoDataAccess</name>
+    </customLabels>
+</Translations>
